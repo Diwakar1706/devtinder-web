@@ -1,3 +1,34 @@
+// import React from 'react';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import './App.css';
+// import { Provider } from 'react-redux'; 
+// import Body from './Body';
+// import Profile from './components/Profile';
+// import Login from './components/Login';
+// import store from './utils/userSlice'
+
+
+// function App() {
+//   return (
+//     <div className="min-h-screen bg-base-200">
+//      <Provider store={store}>
+//       <BrowserRouter basename='/'>
+//         <Routes>
+//           {/* Parent Route */}
+//           <Route path="/" element={<Body />}>
+//             {/* Child Routes (rendered inside <Outlet /> in Body) */}
+//             <Route index element={<div>Home Page Content</div>} />
+//             <Route path="login" element={<Login />} />
+//             <Route path="profile" element={<Profile />} />
+//           </Route>
+//         </Routes>
+//       </BrowserRouter>
+//      </Provider>
+//     </div>
+//   );
+// }
+
+// export default App;
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
@@ -5,19 +36,17 @@ import { Provider } from 'react-redux';
 import Body from './Body';
 import Profile from './components/Profile';
 import Login from './components/Login';
-import store from './utils/userSlice'
-
+import Feed from './components/Feed';
+import appStore from './utils/appStore'; // ✅ Correct
 
 function App() {
   return (
     <div className="min-h-screen bg-base-200">
-     <Provider store={store}>
-      <BrowserRouter basename='/'>
+     <Provider store={appStore}>
+      <BrowserRouter basename="/">
         <Routes>
-          {/* Parent Route */}
           <Route path="/" element={<Body />}>
-            {/* Child Routes (rendered inside <Outlet /> in Body) */}
-            <Route index element={<div>Home Page Content</div>} />
+            <Route path="/" element={<Feed />} />
             <Route path="login" element={<Login />} />
             <Route path="profile" element={<Profile />} />
           </Route>
@@ -29,6 +58,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
